@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class 10 Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+      color: #fff;
+      z-index: 1;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.ibb.co/Qvxyy6bV/image.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: brightness(0.4) blur(2px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 10px #000;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 700px;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 5px #000;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      width: 250px;
+      height: 340px;
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      color: #fff;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-front img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      margin-bottom: 15px;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #00f5d4;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #f1f1f1;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      font-size: 1rem;
+      padding: 20px;
+      color: #ffd6ff;
+    }
+
+    footer {
+      margin-top: 50px;
+      color: #ccc;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 15px #00f5d4;
+    }
+
+    .card-inner::after {
+      content: "Click to flip";
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #ccc;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-inner::after {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .intro {
+        font-size: 1rem;
+      }
+
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+        height: 360px;
+      }
+
+      .name {
+        font-size: 1.2rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Class 10th Memories</h1>
+  <div class="intro">
+    This is our class memory website i think you will like this.
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- Student Cards -->
+      <div class="card" aria-label="Flip card for Manya Singh">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/gZqwQnnW/image.png" alt="Manya Singh">
+            <div class="name">Manya Singh</div>
+            <div class="tagline">"Tallest Girl"</div>
+          </div>
+          <div class="card-back">Height chhoti hai, lekin attitude 6 foot wala 😄"</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Palak Rai">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/gZqwQnnW/image.png" alt="Palak Rai">
+            <div class="name">Palak Rai</div>
+            <div class="tagline">"Spinach Queen 👑"</div>
+          </div>
+          <div class="card-back">"Class ki sabse frank aur chilled out ladki – Palak!🥬"</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Gaurav Maurya">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/Rk2RMtyg/image.png" alt="Gaurav Maurya">
+            <div class="name">Gaurav Maurya</div>
+            <div class="tagline">"Topper"</div>
+          </div>
+          <div class="card-back">Marks ka machine💯</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Rajkrishna">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/MyG9FPnz/image.png" alt="Rajkrishna">
+            <div class="name">Rajkrishna</div>
+            <div class="tagline">"Class's Sister"</div>
+          </div>
+          <div class="card-back">Sabki behen,sabki dost 🤗</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Prakhar Rao">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/672vJrQG/Whats-App-Image-2025-05-28-at-9-35-43-PMgg.jpg" alt="Prakhar Rao">
+            <div class="name">Prakhar Rao</div>
+            <div class="tagline">"Acha Bacha"</div>
+          </div>
+          <div class="card-back">Class ka shaant ladka, par andar se full smartness 🤓</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Atul Seth">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/DfKpQ1Pz/image.png" alt="Atul Seth">
+            <div class="name">Atul Seth</div>
+            <div class="tagline">"mai kya likhu yaha"</div>
+          </div>
+          <div class="card-back">Coding ka deewana 🖤
+            Digital boy
+
+</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Rahul Yadav">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/Ywn4KQ8/Whats-App-Image-2025-05-28-at-9-35-43-PM.jpg" alt="Rahul Yadav">
+            <div class="name">Rahul Yadav</div>
+            <div class="tagline">"Arm wrestler"</div>
+          </div>
+          <div class="card-back">Table tod arm wrestler aur doston ka protector 💪
+
+</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Ankush Yadav">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/twrG3GjD/image.png" alt="Ankush Yadav">
+            <div class="name">Ankush Yadav</div>
+            <div class="tagline">"Gamer"</div>
+          </div>
+          <div class="card-back">Free fire ke shots aur funny talks – full entertainment 🔥</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Aditya Prajapati">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/jvSZQ1dq/image.png" alt="Aditya Prajapati">
+            <div class="name">Aditya Prajapati</div>
+            <div class="tagline">"Padhaku"</div>
+          </div>
+          <div class="card-back">Bookworm with swag, padhai mein serious but life me chilled 😎</div>
+        </div>
+      </div>
+
+      <div class="card" aria-label="Flip card for Ankit">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="https://i.ibb.co/gL8VYNsZ/image.png" alt="Ankit">
+            <div class="name">Ankit</div>
+            <div class="tagline">"Gamer"</div>
+          </div>
+          <div class="card-back"> Reel scroller 😅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  <p style="margin-bottom: 8px;">Made with ❤️ by Atul Seth</p>
+  <a href="https://instagram.com/atul.seth01" target="_blank" rel="noopener" style="color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.1); padding: 8px 14px; border-radius: 20px; box-shadow: 0 0 10px rgba(0, 245, 212, 0.4); transition: all 0.3s ease;">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" style="width: 20px; height: 20px;">
+    <span>Atul Seth</span>
+  </a>
+</footer>
+
+
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('.card').forEach(c => {
+          if (c !== card) c.classList.remove('flipped');
+        });
+        this.classList.toggle('flipped');
+      });
+    });
+  </script>
+</body>
+</html>
